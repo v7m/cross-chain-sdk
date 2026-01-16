@@ -1,0 +1,29 @@
+[package]
+name = "cross-chain-bridge"
+version = "0.1.0"
+description = "Cross-chain token bridge via Wormhole"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "cross_chain_bridge"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = ["devnet"]
+devnet = ["wormhole-anchor-sdk/solana-devnet"]
+mainnet = ["wormhole-anchor-sdk/mainnet"]
+idl-build = [
+    "anchor-lang/idl-build",
+    "anchor-spl/idl-build",
+    "wormhole-anchor-sdk/idl-build",
+]
+
+[dependencies]
+anchor-lang = { workspace = true }
+anchor-spl = { workspace = true }
+wormhole-anchor-sdk = { workspace = true, features = ["token-bridge"] }
+wormhole-io = { workspace = true }

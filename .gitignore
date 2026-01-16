@@ -1,0 +1,24 @@
+# AI generated docs and references
+ai-reference/
+ai-docs/
+
+# Build artifacts
+target/
+.anchor/
+
+# Dependencies
+node_modules/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+
+# Solana specific
+test-ledger/
+.yarn/
+# Program keypairs (NEVER commit!)
+keypairs/
