@@ -1,21 +1,33 @@
 {
-  "name": "cross-chain-bridge-client",
+  "name": "cross-chain-sdk-client",
   "version": "0.1.0",
   "description": "TypeScript client for testing cross-chain bridge between EVM and Solana",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "test": "tsx src/index.ts",
-    "test:evm-to-solana": "tsx src/test-evm-to-solana.ts",
-    "test:solana-to-evm": "tsx src/test-solana-to-evm.ts"
+    "bridge:initialize-solana": "tsx scripts/cross-chain-bridge/initialize-solana.ts",
+    "bridge:setup": "tsx scripts/cross-chain-bridge/setup-bridges.ts",
+    "bridge:test-evm-to-solana": "tsx scripts/cross-chain-bridge/test-evm-to-solana.ts",
+    "bridge:test-solana-to-evm": "tsx scripts/cross-chain-bridge/test-solana-to-evm.ts",
+    "bridge:redeem-evm": "tsx scripts/cross-chain-bridge/redeem-on-evm.ts",
+    "messenger:initialize-solana": "tsx scripts/cross-chain-messenger/initialize-solana.ts",
+    "messenger:setup": "tsx scripts/cross-chain-messenger/setup-messengers.ts",
+    "messenger:test-evm-to-solana": "NODE_OPTIONS='--no-warnings' tsx scripts/cross-chain-messenger/test-evm-to-solana.ts",
+    "messenger:test-solana-to-evm": "NODE_OPTIONS='--no-warnings' tsx scripts/cross-chain-messenger/test-solana-to-evm.ts",
+    "messenger:redeem-evm": "tsx scripts/cross-chain-messenger/redeem-on-evm.ts",
+    "messenger:redeem-solana": "tsx scripts/cross-chain-messenger/redeem-on-solana.ts",
+    "messenger:check-balance": "tsx scripts/cross-chain-messenger/check-balance.ts",
+    "messenger:read-message": "tsx scripts/cross-chain-messenger/read-message.ts",
+    "messenger:read-message-evm": "tsx scripts/cross-chain-messenger/read-message-evm.ts",
+    "messenger:close-received": "tsx scripts/cross-chain-messenger/close-received.ts"
   },
   "dependencies": {
     "@certusone/wormhole-sdk": "^0.9.14",
     "@coral-xyz/anchor": "^0.32.1",
     "@solana/spl-token": "^0.3.7",
     "@solana/web3.js": "^1.98.0",
-    "ethers": "^6.13.0",
+    "ethers": "^5.7.2",
     "dotenv": "^16.4.5"
   },
   "devDependencies": {

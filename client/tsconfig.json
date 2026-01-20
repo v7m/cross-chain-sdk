@@ -19,6 +19,6 @@
     },
     "typeRoots": ["./node_modules/@types", "../node_modules/@types"]
   },
-  "include": ["src/**/*", "../solana/ts/sdk/**/*"],
+  "include": ["src/**/*", "scripts/**/*", "../solana/ts/sdk/**/*"],
   "exclude": ["node_modules", "dist", "../solana/ts/tests/**/*"]
 }

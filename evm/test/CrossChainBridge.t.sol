@@ -2,9 +2,9 @@
 pragma solidity ^0.8.19;
 
 import {Test, console} from "forge-std/Test.sol";
-import {CrossChainBridge} from "../src/CrossChainBridge.sol";
-import {CrossChainBridgeMessages} from "../src/CrossChainBridgeMessages.sol";
-import {CrossChainBridgeStructs} from "../src/CrossChainBridgeStructs.sol";
+import {CrossChainBridge} from "../src/CrossChainBridge/CrossChainBridge.sol";
+import {CrossChainBridgeMessages} from "../src/CrossChainBridge/CrossChainBridgeMessages.sol";
+import {CrossChainBridgeStructs} from "../src/CrossChainBridge/CrossChainBridgeStructs.sol";
 
 contract CrossChainBridgeTest is Test {
     CrossChainBridge public bridge;

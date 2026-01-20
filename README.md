@@ -1,42 +1,103 @@
-# Cross-Chain Bridge
+# Cross-Chain SDK
 
-Cross-chain token bridge between EVM and Solana chains using Wormhole protocol.
+Cross-chain communication between EVM and Solana using Wormhole protocol.
+
+## Components
+
+- **Cross-Chain Bridge** - Token transfers with payload between chains
+- **Cross-Chain Messenger** - Generic message passing between chains
 
 ## Architecture
 
-- **EVM Contract** - Solidity smart contract for EVM chains (Foundry)
-- **Solana Program** - Anchor program for Solana blockchain
-- **Client** - TypeScript client for testing cross-chain transfers
+- **EVM Contracts** - Solidity smart contracts (Foundry)
+- **Solana Programs** - Anchor programs
+- **Client** - TypeScript CLI for cross-chain operations
 
 ## Quick Start
 
-### EVM Contract
+### Build
 
 ```bash
-cd evm
-forge build
-forge test
+# EVM
+cd evm && forge build
+
+# Solana
+cd solana && anchor build
+
+# Client
+cd client && npm install
 ```
 
-See [evm/README.md](./evm/README.md) for details.
+---
 
-### Solana Program
+## Cross-Chain Bridge (Token Transfers)
 
-```bash
-cd solana
-anchor build
-anchor test
-```
-
-See [solana/README.md](./solana/README.md) for details.
-
-### Test Client
+### Setup (one time)
 
 ```bash
 cd client
-npm install
-npm run test:evm-to-solana
-npm run test:solana-to-evm
+npm run bridge:initialize-solana
+npm run bridge:setup
 ```
 
-See [client/README.md](./client/README.md) for details.
+### EVM -> Solana
+
+```bash
+npm run bridge:test-evm-to-solana
+```
+
+### Solana -> EVM
+
+```bash
+npm run bridge:test-solana-to-evm
+# Note sequence from output, then:
+npm run bridge:redeem-evm -- <sequence>
+```
+
+---
+
+## Cross-Chain Messenger (Generic Messages)
+
+### Setup (one time)
+
+```bash
+cd client
+npm run messenger:initialize-solana
+npm run messenger:setup
+```
+
+### EVM -> Solana
+
+```bash
+MESSENGER_PAYLOAD='Hello!' npm run messenger:test-evm-to-solana
+
+# Read message:
+npm run messenger:read-message -- <sequence>
+```
+
+### Solana -> EVM
+
+```bash
+MESSENGER_PAYLOAD='Hello!' npm run messenger:test-solana-to-evm
+
+# Read message:
+npm run messenger:read-message-evm -- <tx-hash>
+```
+
+### Utility
+
+```bash
+# List Received accounts on Solana
+npm run messenger:close-received -- --all
+
+# Close account (recover rent)
+npm run messenger:close-received -- <chain> <sequence>
+```
+
+---
+
+## Documentation
+
+- [Client README](./client/README.md) - Detailed client usage
+- [Solana README](./solana/README.md) - Solana programs
+- [EVM README](./evm/README.md) - EVM contracts

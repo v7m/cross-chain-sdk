@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "./CrossChainBridgeStructs.sol";
+import {CrossChainBridgeStructs} from "./CrossChainBridgeStructs.sol";
 import {BytesLib} from "wormhole-solidity-sdk/testing/helpers/BytesLib.sol";
 
 contract CrossChainBridgeMessages is CrossChainBridgeStructs {

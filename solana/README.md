@@ -1,19 +1,12 @@
-# Cross-Chain Bridge
+# Cross-Chain SDK - Solana Programs
 
-## Solana Program
+## Programs
 
-### Instructions
+### Cross-Chain Bridge
+Token transfers with payload between EVM and Solana.
 
-1. **initialize** - Setup bridge config and Wormhole integration
-2. **register_emitter** - Register trusted contract from another chain
-3. **send_message** - Send payload to another chain via Wormhole
-4. **receive_message** - Receive and process message from another chain
-
-### Accounts
-
-- **BridgeConfig** - Stores owner, Wormhole config
-- **ForeignEmitter** - Trusted contract address from foreign chain
-- **ReceivedMessage** - Stores received message data
+### Cross-Chain Messenger
+Generic message passing between chains.
 
 ## Build
 
@@ -30,5 +23,19 @@ anchor test
 ## Deploy
 
 ```bash
+# Mainnet
+anchor deploy --provider.cluster mainnet
+
+# Devnet
 anchor deploy --provider.cluster devnet
+```
+
+## Scripts
+
+```bash
+# Check program deployment status
+node scripts/check-programs.js
+
+# Check wallet balance
+node scripts/check-balance.js
 ```

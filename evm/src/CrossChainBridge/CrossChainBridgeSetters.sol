@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "./CrossChainBridgeState.sol";
+import {CrossChainBridgeState} from "./CrossChainBridgeState.sol";
 
 contract CrossChainBridgeSetters is CrossChainBridgeState {
     function setOwner(address owner_) internal {

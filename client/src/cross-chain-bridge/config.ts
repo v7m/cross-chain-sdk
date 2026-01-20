@@ -1,6 +1,5 @@
 import { config as dotenvConfig } from "dotenv";
 import { PublicKey } from "@solana/web3.js";
-import { CHAINS } from "@certusone/wormhole-sdk";
 
 dotenvConfig();
 
@@ -22,15 +21,15 @@ export const config = {
     ),
     wormholeProgramId: new PublicKey(
       process.env.SOLANA_WORMHOLE_PROGRAM_ID ||
-        "3u8hJUVTA4jH1wYAyUur7FFZVQ8H635K3tSHHF4ssjQ5"
+        "worm2ZoG2kUd4vFXhvjh93UUH596ayRfgQ2MgjNMTth"
     ),
     tokenBridgeProgramId: new PublicKey(
       process.env.SOLANA_TOKEN_BRIDGE_PROGRAM_ID ||
-        "DZnkkTmCiFWfYTfT41X3Rd1kDgozqzxWaHqsw6W4x2oe"
+        "wormDTUJ6AWPNvk59vGQbDvGJmqbDTdgWgAqcLBCgUb"
     ),
   },
   wormhole: {
-    rpcUrl: process.env.WORMHOLE_RPC_URL || "https://wormhole-v2-testnet-api.certus.one",
+    rpcUrl: process.env.WORMHOLE_RPC_URL || "https://api.wormholescan.io",
   },
   test: {
     tokenAddress: process.env.TEST_TOKEN_ADDRESS || "",
@@ -38,6 +37,7 @@ export const config = {
 };
 
 export const WORMHOLE_CHAIN_IDS = {
-  SOLANA: CHAINS.solana,
-  ETHEREUM: CHAINS.ethereum,
-};
+  SOLANA: 1,
+  ETHEREUM: 2,
+  BASE: 30,
+} as const;

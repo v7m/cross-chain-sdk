@@ -5,11 +5,13 @@ anchor_version = "0.32.1"
 resolution = true
 skip-lint = false
 
-[programs.devnet]
+[programs.mainnet]
 cross_chain_bridge = "5HVG1XFoN3KXa6gcFkCs7iFcHvtsbmY6drvP34S1mwn4"
+cross_chain_messenger = "6KCA7CLpqcAqgTNcwYCVKYRixvvRqcMMrAN7FAH1qJxW"
 
 [programs.localnet]
 cross_chain_bridge = "5HVG1XFoN3KXa6gcFkCs7iFcHvtsbmY6drvP34S1mwn4"
+cross_chain_messenger = "6KCA7CLpqcAqgTNcwYCVKYRixvvRqcMMrAN7FAH1qJxW"
 
 [registry]
 url = "https://api.apr.dev"
@@ -22,16 +24,16 @@ wallet = "~/.config/solana/id.json"
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
 
 [test.validator]
-url = "https://api.devnet.solana.com"
+url = "https://api.mainnet-beta.solana.com"
 
-# Wormhole Core Bridge (mainnet address, but cloned from devnet state)
+# MPL Token Metadata (Metaplex)
+[[test.validator.clone]]
+address = "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+
+# Wormhole Core Bridge (mainnet)
 [[test.validator.clone]]
 address = "worm2ZoG2kUd4vFXhvjh93UUH596ayRfgQ2MgjNMTth"
 
-# Wormhole Core Bridge (devnet)
+# Token Bridge (mainnet)
 [[test.validator.clone]]
-address = "3u8hJUVTA4jH1wYAyUur7FFZVQ8H635K3tSHHF4ssjQ5"
-
-# Token Bridge (devnet)
-[[test.validator.clone]]
-address = "DZnkkTmCiFWfYTfT41X3Rd1kDgozqzxWaHqsw6W4x2oe"
+address = "wormDTUJ6AWPNvk59vGQbDvGJmqbDTdgWgAqcLBCgUb"

@@ -1,5 +1,5 @@
 {
-  "name": "cross-chain-bridge",
+  "name": "cross-chain-sdk",
   "version": "0.1.0",
   "scripts": {
     "lint:fix": "prettier */*.js \"*/**/*{.js,.ts}\" -w",

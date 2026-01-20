@@ -2,9 +2,9 @@
 pragma solidity ^0.8.19;
 
 import {Script, console} from "forge-std/Script.sol";
-import {CrossChainBridge} from "../src/CrossChainBridge.sol";
+import {CrossChainBridge} from "../src/CrossChainBridge/CrossChainBridge.sol";
 
-contract DeployScript is Script {
+contract DeployBridgeScript is Script {
     function run() public {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         address wormhole = vm.envAddress("WORMHOLE_ADDRESS");
