@@ -2,6 +2,9 @@
 cache/
 out/
 
+# Dependencies (installed via git submodules)
+lib/
+
 # Ignores development broadcast logs
 !/broadcast
 /broadcast/*/31337/
