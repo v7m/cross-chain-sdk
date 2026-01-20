@@ -1,0 +1,2 @@
+# Mark lib/ as vendored dependencies (excluded from language stats)
+lib/** linguist-vendored
